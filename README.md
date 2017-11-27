@@ -1,5 +1,9 @@
 # Use GraphQL with Rest API - demo
 
+[![travis.ci](https://img.shields.io/travis/dacz/apollo-bridge-link-example.svg?style=flat-square)](https://travis-ci.org/dacz/apollo-bridge-link-example)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dacz/apollo-bridge-link-example.svg)](https://greenkeeper.io/)
+[![license](https://img.shields.io/github/license/dacz/apollo-bridge-link-example.svg)](https://github.com/dacz/apollo-bridge-link-example/blob/master/LICENSE)
+
 **Develop with GraphQl on the client facing server with REST API.**
 
 This demo uses
