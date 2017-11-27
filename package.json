@@ -1,7 +1,7 @@
 {
-  "name": "bridge-graphql-rest",
-  "version": "0.1.0",
-  "description": "client side graphql bridge to rest api",
+  "name": "apollo-bridge-link-example",
+  "version": "1.0.0",
+  "description": "demo of client side graphql bridge to rest api",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
@@ -11,7 +11,8 @@
     "test:watch": "npm test -- --watch -v"
   },
   "author": "dacz",
-  "license": "UNLICENSED",
+  "license": "MIT",
+  "repository": "https://github.com/dacz/apollo-bridge-link-example",
   "browserslist": [
     "> 3%",
     "Safari >= 8",
