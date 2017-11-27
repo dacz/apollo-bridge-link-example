@@ -1,5 +1,7 @@
 # Use GraphQL with Rest API - demo
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dacz/apollo-bridge-link-example.svg)](https://greenkeeper.io/)
+
 **Develop with GraphQl on the client facing server with REST API.**
 
 This demo uses
