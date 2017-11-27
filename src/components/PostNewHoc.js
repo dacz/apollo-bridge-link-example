@@ -8,7 +8,7 @@ import {
 
 import { ADD_POST } from '../queries.graphql';
 import PostNew from './PostNew';
-import db from '../../db.json';
+import db from '../../db.json'; // eslint-disable-line import/no-unresolved
 import { omit } from 'ramda';
 import { withApollo } from 'react-apollo';
 
