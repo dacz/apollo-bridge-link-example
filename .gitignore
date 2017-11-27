@@ -1,0 +1,39 @@
+# my own
+archive
+db.json
+
+# logs
+log/*
+temp/*
+
+# npm
+node_modules
+
+# others
+ssh
+
+# Mess by os
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Docker
+.data/

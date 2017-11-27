@@ -1,0 +1,33 @@
+{
+  "users": [
+    { "id": "u1", "username": "username1", "email": "u1@email.com" },
+    { "id": "u22", "username": "username22", "email": "u22@email.com" },
+    { "id": "u333", "username": "username333", "email": "u333@email.com" }
+  ],
+  "posts": [
+    {
+      "id": "p1",
+      "title": "post 1",
+      "content": "content of p1",
+      "userId": "u1"
+    },
+    {
+      "id": "p22",
+      "title": "post 22",
+      "content": "content of p22",
+      "userId": "u22"
+    },
+    {
+      "id": "p1212",
+      "title": "post 1212",
+      "content": "content of p1212",
+      "userId": "u1"
+    },
+    {
+      "id": "p55555",
+      "title": "post 55555",
+      "content": "content of p55555",
+      "userId": "u1"
+    }
+  ]
+}
