@@ -1,7 +1,6 @@
-import { compose, withProps } from 'recompose';
-
 import { POSTS } from '../queries.graphql';
 import Posts from './Posts';
+import { compose } from 'recompose';
 import { graphql } from 'react-apollo';
 import loadingErrorCleanup from './loadingErrorCleanup';
 
@@ -13,6 +12,4 @@ const withData = graphql(POSTS, {
   }),
 });
 
-const withLog = withProps(console.log);
-
-export default compose(withData, loadingErrorCleanup, withLog)(Posts);
+export default compose(withData, loadingErrorCleanup)(Posts);

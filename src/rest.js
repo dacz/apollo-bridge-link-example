@@ -3,7 +3,7 @@ import { REST_URL } from './links';
 import fetch from 'isomorphic-fetch';
 import qs from 'query-string';
 
-// TODO: fetch make better
+// make fetch way better!!!
 
 const postByAuthorLoader = new DataLoader(async userIds => {
   const data = await (await fetch(
