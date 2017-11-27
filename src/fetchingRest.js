@@ -10,7 +10,9 @@ const parseAndCheckResponse = response =>
     })
     .catch(e => {
       const httpError = new Error(
-        `Network request failed with status ${response.status} - "${response.statusText}"`
+        `Network request failed with status ${response.status} - "${
+          response.statusText
+        }"`
       );
       httpError.response = response;
       httpError.parseError = e;
@@ -18,3 +20,5 @@ const parseAndCheckResponse = response =>
 
       throw httpError;
     });
+
+export default parseAndCheckResponse;
