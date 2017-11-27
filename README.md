@@ -41,3 +41,8 @@ Your data will be in `db.json` file (with your changes).
 
 * [ ] demo handling login & authorization (jwt token in header)
 * [ ] write blogpost about this example to explain little bit more
+
+## Sponsors
+
+**LiveAndCode** - passionate group of javascript developers (contact
+juraj@liveandcode.cz). Thanks!
