@@ -45,4 +45,4 @@ Your data will be in `db.json` file (with your changes).
 ## Sponsors
 
 **LiveAndCode** - passionate group of javascript developers (contact
-juraj@liveandcode.cz). Thanks!
+juraj@liveandcode.cz). Thanks!!
