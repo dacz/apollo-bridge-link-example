@@ -4,8 +4,12 @@
   "description": "demo of client side graphql bridge to rest api",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
-    "server": "json-server --watch db.json",
+    "dev":
+      "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
+    "server":
+      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js ./serverMiddleware/requireAuthForPostAndPut.js",
+    "server-unauthorized":
+      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js",
     "lint": "eslint ./src",
     "test": "cross-env NODE_ENV=test ava",
     "test:watch": "npm test -- --watch -v"
@@ -13,18 +17,10 @@
   "author": "dacz",
   "license": "MIT",
   "repository": "https://github.com/dacz/apollo-bridge-link-example",
-  "browserslist": [
-    "> 3%",
-    "Safari >= 8",
-    "IE 11"
-  ],
+  "browserslist": ["> 3%", "Safari >= 8", "IE 11"],
   "ava": {
-    "files": [
-      "**/*.test.js"
-    ],
-    "require": [
-      "babel-register"
-    ],
+    "files": ["**/*.test.js"],
+    "require": ["babel-register"],
     "babel": "inherit"
   },
   "devDependencies": {
