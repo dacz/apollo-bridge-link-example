@@ -2,39 +2,58 @@ import DataLoader from 'dataloader';
 import { REST_URL } from './links';
 import fetcher from './fetcher';
 
-const postByAuthorLoader = new DataLoader(async userIds => {
-  const data = await fetcher.get({
-    url: `${REST_URL}/posts/`,
-    urlParams: { userId: userIds },
-  });
-  return userIds.map(id => data.filter(item => item.userId === id));
-});
+// ---- DATA LOADERS
 
-const usersLoader = new DataLoader(async userIds => {
-  const data = await fetcher.get({
-    url: `${REST_URL}/users/`,
-    urlParams: { id: userIds },
-  });
-  return userIds.map(id => data.find(item => item.id === id));
-});
-
-const rest = {
-  getPosts: async root =>
-    root
-      ? postByAuthorLoader.load(root.id)
-      : await fetcher.get({ url: `${REST_URL}/posts` }),
-
-  getPost: async (root, args) =>
-    await fetcher.get({
-      url: `${REST_URL}/posts/${root ? root.postId : args.id}`,
+export const dataLoadersFactory = ctx => ({
+  dataLoaders: {
+    postByAuthor: new DataLoader(async userIds => {
+      const data = await fetcher.get({
+        url: `${REST_URL}/posts/`,
+        urlParams: { userId: userIds },
+        ctx,
+      });
+      return userIds.map(id => data.filter(item => item.userId === id));
     }),
 
-  addPost: async (root, args) =>
-    await fetcher.post({ url: `${REST_URL}/posts`, data: args }),
+    users: new DataLoader(async userIds => {
+      const data = await fetcher.get({
+        url: `${REST_URL}/users/`,
+        urlParams: { id: userIds },
+        ctx,
+      });
+      return userIds.map(id => data.find(item => item.id === id));
+    }),
+  },
+});
 
-  getUsers: async () => await fetcher.get({ url: `${REST_URL}/users` }),
+// ---- FETCHER'S METHODS
 
-  getUser: async (root, args) => usersLoader.load(root ? root.userId : args.id),
+const rest = {
+  getPosts: async (root, args, ctx) =>
+    root
+      ? ctx.dataLoaders.postByAuthor.load(root.id)
+      : await fetcher.get({
+        url: `${REST_URL}/posts`,
+        ctx,
+      }),
+
+  getPost: async (root, args, ctx) =>
+    await fetcher.get({
+      url: `${REST_URL}/posts/${root ? root.postId : args.id}`,
+      ctx,
+    }),
+
+  addPost: async (root, args, ctx) =>
+    await fetcher.post({ url: `${REST_URL}/posts`, data: args, ctx }),
+
+  getUsers: async (root, args, ctx) =>
+    await fetcher.get({
+      url: `${REST_URL}/users`,
+      ctx,
+    }),
+
+  getUser: async (root, args, ctx) =>
+    ctx.dataLoaders.users.load(root ? root.userId : args.id),
 };
 
 export default rest;

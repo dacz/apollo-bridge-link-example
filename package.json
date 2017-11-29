@@ -4,12 +4,9 @@
   "description": "demo of client side graphql bridge to rest api",
   "main": "index.js",
   "scripts": {
-    "dev":
-      "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
-    "server":
-      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js ./serverMiddleware/requireAuthForPostAndPut.js",
-    "server-unauthorized":
-      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
+    "server": "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js ./serverMiddleware/requireAuthForPostAndPut.js",
+    "server-unauthorized": "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js",
     "lint": "eslint ./src",
     "test": "cross-env NODE_ENV=test ava",
     "test:watch": "npm test -- --watch -v"
@@ -17,10 +14,18 @@
   "author": "dacz",
   "license": "MIT",
   "repository": "https://github.com/dacz/apollo-bridge-link-example",
-  "browserslist": ["> 3%", "Safari >= 8", "IE 11"],
+  "browserslist": [
+    "> 3%",
+    "Safari >= 8",
+    "IE 11"
+  ],
   "ava": {
-    "files": ["**/*.test.js"],
-    "require": ["babel-register"],
+    "files": [
+      "**/*.test.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "devDependencies": {
@@ -46,20 +51,21 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "apollo-bridge-link": "^1.0.2",
+    "apollo-bridge-link": "^1.1.0",
     "apollo-cache-inmemory": "^1.1.1",
     "apollo-client": "^2.0.3",
+    "apollo-link-context": "^1.0.1",
     "dataloader": "^1.3.0",
     "graphql": "^0.11.7",
     "graphql-tag": "^2.5.0",
-    "graphql-tools": "^2.9.0",
+    "graphql-tools": "^2.10.0",
     "isomorphic-fetch": "^2.2.1",
     "json-server": "^0.12.1",
     "query-string": "^5.0.1",
     "ramda": "^0.25.0",
-    "react": "^16.1.1",
+    "react": "^16.2.0",
     "react-apollo": "^2.0.1",
-    "react-dom": "^16.1.1",
+    "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0"
   }

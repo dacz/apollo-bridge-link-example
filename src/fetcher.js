@@ -15,19 +15,25 @@ export const checkStatus = response => {
 };
 
 /* eslint-disable complexity */
-export const makeFetchOpts = ({ method, data, authToken, opts = {} } = {}) => {
+export const makeFetchOpts = (
+  { method, data, authToken, authorization, ctx = {}, opts = {} } = {}
+) => {
   const headers = {
     ...opts.headers,
+    ...ctx.headers,
     ...(['POST', 'PUT', 'PATCH'].includes(method || opts.method)
       ? { 'Content-Type': 'application/json' }
       : {}),
     ...(authToken ? { Authorization: `Bearer ${authToken}` } : {}),
+    ...(authorization ? { Authorization: authorization } : {}),
   };
 
   return {
     ...opts,
     ...(method || opts.method ? { method: method || opts.method } : {}),
-    ...(authToken ? { credentials: 'include' } : {}),
+    ...(authToken || authorization || (ctx.headers && ctx.headers.authorization)
+      ? { credentials: 'include' }
+      : {}),
     ...(data || opts.body ? { body: JSON.stringify(data || opts.body) } : {}),
     ...(Object.keys(headers).length > 0 ? { headers } : {}),
   };
@@ -43,11 +49,13 @@ export const fetchAndParse = method => async ({
   urlParams,
   data,
   authToken,
+  authorization,
+  ctx,
   opts,
 }) => {
   const response = await fetch(
     addQsToUrl(url, urlParams),
-    makeFetchOpts({ method, data, authToken, opts })
+    makeFetchOpts({ method, data, authToken, authorization, ctx, opts })
   );
   checkStatus(response); // may throw - GraphQL will catch
   return await response.json();
