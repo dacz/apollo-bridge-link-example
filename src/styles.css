@@ -12,6 +12,8 @@
 body {
   font-family: 'Open sans', sans-serif;
   font-size: var(--fontsize);
+  margin: 0;
+  padding: 0;
 }
 
 .fix:after {
@@ -22,6 +24,11 @@ body {
 
 ul.menu {
   list-style-type: none;
+  padding: calc(var(--pad) / 2) var(--pad) calc(var(--pad) / 2)
+    calc(var(--pad) / 2);
+  margin: 0;
+  background-color: #444;
+  font-size: var(--smallertext);
 }
 
 ul.menu li {
@@ -30,10 +37,45 @@ ul.menu li {
   border-right: 1px solid grey;
 }
 
+ul.menu li a {
+  color: #999;
+  text-decoration: none;
+}
+
+ul.menu li a.active {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+ul.menu li a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+ul.menu li a.active:hover {
+  text-decoration: none;
+}
+
 ul.menu li:last-of-type {
   display: inline-block;
   padding: 0 0.5em;
   border-right: none;
+}
+
+.home {
+  padding: var(--pad);
+}
+
+.home h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.errormessage,
+.loadingmessage {
+  padding: var(--pad);
 }
 
 .user,
@@ -85,7 +127,8 @@ ul.menu li:last-of-type {
   padding: var(--pad);
 }
 
-.user-posts .posts {
+.user-posts .posts,
+.user-posts .posts .title {
   font-size: var(--smallertext);
 }
 
@@ -119,6 +162,7 @@ ul.menu li:last-of-type {
 }
 
 .author .username {
+  font-size: var(--smallertext);
   font-weight: normal;
   background-color: transparent;
 }

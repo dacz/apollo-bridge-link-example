@@ -1,4 +1,9 @@
-import { Link, Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import {
+  NavLink,
+  Route,
+  BrowserRouter as Router,
+  Switch,
+} from 'react-router-dom';
 
 import Home from './components/Home';
 import NotFound from './components/NotFound';
@@ -14,20 +19,21 @@ export default () => (
     <div>
       <ul className="menu">
         <li>
-          <Link to="/">Home</Link>
+          <NavLink exact to="/">
+            Home
+          </NavLink>
         </li>
         <li>
-          <Link to="/users">Users</Link>
+          <NavLink to="/users">Users</NavLink>
         </li>
         <li>
-          <Link to="/posts">Posts</Link>
+          <NavLink to="/posts">Posts</NavLink>
         </li>
         <li>
-          <Link to="/createPost">Create New Post</Link>
+          <NavLink to="/createPost">Create New Post</NavLink>
         </li>
       </ul>
 
-      <hr />
       <Switch>
         <Route exact path="/" component={ Home } />
         <Route path="/users/:id" component={ UserHoc } />
