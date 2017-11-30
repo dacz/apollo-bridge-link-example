@@ -1,7 +1,7 @@
 const config = require('./config');
 
 module.exports = {
-  contentBase: config.DIST,
+  contentBase: config.SRC,
   historyApiFallback: true,
   hot: true,
   quiet: false,

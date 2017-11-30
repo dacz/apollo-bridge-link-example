@@ -1,0 +1,173 @@
+:root {
+  --pad: 1rem;
+  --fontsize: 18px;
+  --smallertext: 0.9rem;
+  --smalltext: 0.7rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open sans', sans-serif;
+  font-size: var(--fontsize);
+}
+
+.fix:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+ul.menu {
+  list-style-type: none;
+}
+
+ul.menu li {
+  display: inline-block;
+  padding: 0 calc(var(--pad) / 2);
+  border-right: 1px solid grey;
+}
+
+ul.menu li:last-of-type {
+  display: inline-block;
+  padding: 0 0.5em;
+  border-right: none;
+}
+
+.user,
+.post {
+  border-top: 1px solid grey;
+}
+
+.user .username,
+.post .title,
+.newpost h3 {
+  display: block;
+  padding: calc(var(--pad) / 2) var(--pad);
+  background-color: #eee;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.user .username a,
+.post .title a {
+  text-decoration: none;
+}
+
+.user .username a:hover,
+.post .title a:hover {
+  text-decoration: underline;
+}
+
+.user .id,
+.post .id {
+  float: right;
+  font-size: var(--smalltext);
+  padding: calc(var(--pad) / 4) var(--pad) 0;
+}
+
+.user .id::before,
+.post .id::before {
+  content: 'id: ';
+}
+
+.user .email {
+  float: left;
+  font-size: var(--smalltext);
+  padding: calc(var(--pad) / 4) var(--pad) 0;
+}
+
+.user .user-posts,
+.post .content {
+  clear: both;
+  padding: var(--pad);
+}
+
+.user-posts .posts {
+  font-size: var(--smallertext);
+}
+
+.user-posts .posts div:first-of-type::before {
+  content: 'Posts';
+}
+
+.user-posts .post {
+  border-top: none;
+}
+
+.user-posts .id,
+.user-posts .content {
+  display: none;
+}
+
+.user-posts .title {
+  display: list-item;
+  padding: 0;
+  background-color: transparent;
+  font-weight: normal;
+  margin-left: calc(var(--pad) * 2);
+}
+
+.author {
+  font-size: var(--smallertext);
+}
+
+.author .user {
+  border-top: none;
+}
+
+.author .username {
+  font-weight: normal;
+  background-color: transparent;
+}
+
+.author .username::before {
+  content: 'author: ';
+}
+
+.author .id,
+.author .email {
+  display: none;
+}
+
+.posts .post .content {
+  display: none;
+}
+
+form {
+  padding: 0 var(--pad);
+}
+
+form label {
+  display: block;
+  font-size: var(--smallertext);
+  width: 100%;
+  max-width: 20rem;
+  padding-top: var(--pad);
+}
+
+form label:first-of-type {
+  padding-top: 0;
+}
+
+label input,
+label textarea {
+  display: block;
+  clear: both;
+  font-size: 1rem;
+  padding: calc(var(--pad) / 6) calc(var(--pad) / 4);
+  width: 100%;
+  max-width: 20rem;
+  border: 1px solid #ddd;
+}
+
+button {
+  margin-top: var(--pad);
+  padding: calc(var(--pad) / 2) var(--pad);
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}

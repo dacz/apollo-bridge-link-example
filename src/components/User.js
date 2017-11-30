@@ -4,25 +4,14 @@ import React from 'react';
 import { userLink } from '../links';
 
 export default ({ user }) => (
-  <div>
-    <div className="post-header">
-      <span className="id" style={{ color: 'grey', fontSize: '0.75em' }}>
-        [user: {user.id}] :{' '}
-      </span>
-      <span className="title" style={{ fontWeight: 'bold' }}>
-        <Link to={ userLink(user.id) }>{user.username}</Link>
-      </span>
-      <span
-        className="email"
-        style={{ color: 'grey', fontSize: '0.75em', fontStyle: 'italic' }}
-      >
-        {' '}
-        ({user.email})
-      </span>
-    </div>
+  <div className="user">
+    <span className="username">
+      <Link to={ userLink(user.id) }>{user.username}</Link>
+    </span>
+    <span className="id">{user.id}</span>
+    <span className="email">{user.email}</span>
     {user.posts ? (
-      <div className="posts">
-        Posts:
+      <div className="user-posts">
         <Posts posts={ user.posts } />
       </div>
     ) : null}

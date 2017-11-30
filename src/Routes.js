@@ -12,7 +12,7 @@ import UsersHoc from './components/UsersHoc';
 export default () => (
   <Router>
     <div>
-      <ul>
+      <ul className="menu">
         <li>
           <Link to="/">Home</Link>
         </li>

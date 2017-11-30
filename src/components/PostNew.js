@@ -10,16 +10,24 @@ const getDataFromForm = (e, userId) => {
 };
 
 export default ({ userId, submitNewPost, submitLoading, submitError }) => (
-  <div>
+  <div className="newpost">
     {submitError ? <div>Error: {submitError}</div> : null}
+    <h3>Create New Post</h3>
     <form
       onSubmit={ e => {
         e.preventDefault();
         submitNewPost(getDataFromForm(e, userId));
       } }
+      className="form"
     >
-      <input type="text" name="title" />
-      <textarea name="content" />
+      <label>
+        Title:
+        <input type="text" name="title" className="title" />
+      </label>
+      <label>
+        Content:
+        <textarea name="content" className="content" />
+      </label>
       <button type="submit" name="submit" disabled={ submitLoading }>
         Create Post
       </button>
