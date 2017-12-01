@@ -16,6 +16,8 @@ I implement them and then find a time to put them into this demo._
 
 It is barebone, unstyled, ugly (webpage).
 
+## The article about details about the code is [here](https://medium.com/@dadc/using-graphql-client-with-rest-api-9c332e5c8eb3)
+
 ## Run demo
 
 ```shell
