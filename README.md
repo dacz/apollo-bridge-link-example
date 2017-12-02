@@ -14,7 +14,7 @@ _I use the core functionality (apollo-bridge-link) for production code for
 clients and it works ok. But it's work in progress as the requirements arise and
 I implement them and then find a time to put them into this demo._
 
-It is barebone, unstyled, ugly (webpage).
+It is barebone, minimally styled.
 
 ## The article about the demo is [here](https://medium.com/@dadc/using-graphql-client-with-rest-api-9c332e5c8eb3)
 
@@ -33,6 +33,8 @@ npm run dev
 
 ## Parts
 
+* [`apollo-client` library](https://github.com/apollographql/apollo-client)
+  GraphQL client
 * [`apollo-bridge-link` library](https://github.com/dacz/apollo-bridge-link) for
   setting up the client with possibility to define resolvers on the client
 * [dataloader](https://github.com/facebook/dataloader) for optimizing/batching
@@ -45,8 +47,9 @@ Your data will be in `db.json` file (with your changes).
 
 ## ToDo
 
-* [ ] demo handling login & authorization (jwt token in header)
-* [ ] write blogpost about this example to explain little bit more
+* [x] demo handling authorization token
+* [x] write blogpost about this example to explain little bit more
+      ([here](https://medium.com/@dadc/using-graphql-client-with-rest-api-9c332e5c8eb3))
 
 ## Sponsors
 
