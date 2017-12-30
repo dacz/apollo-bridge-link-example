@@ -1,6 +1,7 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory'; // eslint-disable-line import/no-unresolved
-import { createBridgeLink } from '../../apollo-bridge-link/lib';
+// import { createBridgeLink } from '../../apollo-bridge-link/lib';
+import { createBridgeLink } from 'apollo-bridge-link';
 import { dataLoadersFactory } from './rest';
 import resolvers from './resolvers';
 import schema from './schemaPlain';
