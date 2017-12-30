@@ -1,6 +1,6 @@
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory'; // eslint-disable-line import/no-unresolved
-import { createBridgeLink } from 'apollo-bridge-link';
+import { createBridgeLink } from '../../apollo-bridge-link/lib';
 import { dataLoadersFactory } from './rest';
 import resolvers from './resolvers';
 import schema from './schemaPlain';
@@ -10,6 +10,9 @@ const mock = true;
 
 const context = {
   graphQl: 'is cool',
+  headers: {
+    'X-extend-me': 'should stay here',
+  },
 };
 
 const authLink = setContext(() => context);
@@ -34,7 +37,7 @@ export const client = new ApolloClient({
 // not pure, but who is pure ;)
 // because we need to leave referenced object in place
 export const addTokenToMiddleware = token => {
-  context.headers = { authorization: `Bearer ${token}` };
+  context.headers = { ...context.headers, authorization: `Bearer ${token}` };
   return true;
 };
 

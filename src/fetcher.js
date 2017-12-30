@@ -15,9 +15,14 @@ export const checkStatus = response => {
 };
 
 /* eslint-disable complexity */
-export const makeFetchOpts = (
-  { method, data, authToken, authorization, ctx = {}, opts = {} } = {}
-) => {
+export const makeFetchOpts = ({
+  method,
+  data,
+  authToken,
+  authorization,
+  ctx = {},
+  opts = {},
+} = {}) => {
   const headers = {
     ...opts.headers,
     ...ctx.headers,
