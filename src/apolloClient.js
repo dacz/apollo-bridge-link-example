@@ -3,6 +3,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'; // eslint-disable-line im
 // import { createBridgeLink } from '../../apollo-bridge-link/lib';
 import { createBridgeLink } from 'apollo-bridge-link';
 import { dataLoadersFactory } from './rest';
+import { mergeDeepRight } from 'ramda';
 import resolvers from './resolvers';
 import schema from './schemaPlain';
 import { setContext } from 'apollo-link-context';
@@ -16,20 +17,21 @@ const context = {
   },
 };
 
-const authLink = setContext(() => context);
+const contextLink = setContext((_req, prevContext) => ({
+  ...context,
+  ...dataLoadersFactory(mergeDeepRight(context, prevContext)),
+}));
 
 const link = createBridgeLink({
   schema,
   resolvers,
   mock,
-  context,
-  contextware: dataLoadersFactory,
 });
 
 const cache = new InMemoryCache({ addTypename: true });
 
 export const client = new ApolloClient({
-  link: authLink.concat(link),
+  link: contextLink.concat(link),
   cache,
   connectToDevTools: true,
   queryDeduplication: true,
