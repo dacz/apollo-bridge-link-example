@@ -25,7 +25,7 @@ It is barebone, minimally styled.
 cp db.json.dist db.json
 
 # in one console - start JSON mock server
-npm run server
+npm run rest-server
 
 # in another console - start client
 npm run dev
