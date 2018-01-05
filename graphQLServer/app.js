@@ -45,7 +45,7 @@ export default () => {
       config.GRAPHIQL_PATH,
       graphiqlExpress({
         endpointURL: `http://localhost:${config.GRAPHQL_SERVER_PORT}${
-          config.GRAPHIQL_PATH
+          config.GRAPHQL_API_PATH
         }`,
       })
     );
