@@ -28,27 +28,13 @@ export default () => {
     config.GRAPHQL_API_PATH,
     bodyParser.json(),
     graphqlExpress(async req => {
-      // const headers = req.headers
-      console.log('REQ.HEADERS', req.headers);
       const context = dynamicContext({
         // req,
         headers: copyOnlyHeaders(req.headers),
       });
-      console.log('context', context);
       return {
         schema,
-        context, //: dynamicContext({ req }),
-        // context: {
-        //   req,
-        //   // viewer: req.viewer,
-        //   // models, // for resolvers
-        //   // cache,
-        //   // dataloaders: pipe(
-        //   //   map(prop('dataloaders')),
-        //   //   filter(i => !!i),
-        //   //   map(loaders => map(fn => fn(), loaders))
-        //   // )(models),
-        // },
+        context,
       };
     })
   );
