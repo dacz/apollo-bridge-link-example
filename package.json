@@ -48,7 +48,7 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "@std/esm": "^0.18.0",
+    "@std/esm": "^0.19.0",
     "apollo-bridge-link": "^2.0.0",
     "apollo-cache-inmemory": "^1.1.4",
     "apollo-client": "^2.0.4",
