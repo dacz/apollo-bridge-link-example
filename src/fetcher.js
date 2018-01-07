@@ -63,6 +63,7 @@ export const fetchAndParse = method => async ({
     makeFetchOpts({ method, data, authToken, authorization, ctx, opts })
   );
   checkStatus(response); // may throw - GraphQL will catch
+  if (response.status === 204) return {};
   return await response.json();
 };
 
