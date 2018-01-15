@@ -4,12 +4,9 @@
   "description": "demo of client side graphql bridge to rest api",
   "main": "index.js",
   "scripts": {
-    "dev":
-      "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
-    "rest-server":
-      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js ./serverMiddleware/requireAuthForPostAndPut.js",
-    "rest-server-unauthorized":
-      "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --watch --port 3003 --config webpack/webpack.config.js",
+    "rest-server": "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js ./serverMiddleware/requireAuthForPostAndPut.js",
+    "rest-server-unauthorized": "json-server --watch db.json --middlewares ./serverMiddleware/logAuthHeader.js",
     "graphql-server": "nodemon graphQLServer/server.js --exec babel-node",
     "lint": "eslint ./src",
     "test": "cross-env NODE_ENV=test ava",
@@ -18,10 +15,18 @@
   "author": "dacz",
   "license": "MIT",
   "repository": "https://github.com/dacz/apollo-bridge-link-example",
-  "browserslist": ["> 3%", "Safari >= 8", "IE 11"],
+  "browserslist": [
+    "> 3%",
+    "Safari >= 8",
+    "IE 11"
+  ],
   "ava": {
-    "files": ["**/*.test.js"],
-    "require": ["babel-register"],
+    "files": [
+      "**/*.test.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "devDependencies": {
@@ -48,7 +53,6 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "@std/esm": "^0.18.0",
     "apollo-bridge-link": "^2.0.0",
     "apollo-cache-inmemory": "^1.1.4",
     "apollo-client": "^2.0.4",
