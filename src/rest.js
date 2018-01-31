@@ -29,30 +29,30 @@ export const dataLoadersFactory = ctx => ({
 // ---- FETCHER'S METHODS
 
 const rest = {
-  getPosts: async (root, args, ctx) =>
+  getPosts: (root, args, ctx) =>
     root
       ? ctx.dataLoaders.postByAuthor.load(root.id)
-      : await fetcher.get({
+      : fetcher.get({
         url: `${REST_URL}/posts`,
         ctx,
       }),
 
-  getPost: async (root, args, ctx) =>
-    await fetcher.get({
+  getPost: (root, args, ctx) =>
+    fetcher.get({
       url: `${REST_URL}/posts/${root ? root.postId : args.id}`,
       ctx,
     }),
 
-  addPost: async (root, args, ctx) =>
-    await fetcher.post({ url: `${REST_URL}/posts`, data: args, ctx }),
+  addPost: (root, args, ctx) =>
+    fetcher.post({ url: `${REST_URL}/posts`, data: args, ctx }),
 
-  getUsers: async (root, args, ctx) =>
-    await fetcher.get({
+  getUsers: (root, args, ctx) =>
+    fetcher.get({
       url: `${REST_URL}/users`,
       ctx,
     }),
 
-  getUser: async (root, args, ctx) =>
+  getUser: (root, args, ctx) =>
     ctx.dataLoaders.users.load(root ? root.userId : args.id),
 };
 

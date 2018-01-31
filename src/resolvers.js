@@ -2,21 +2,21 @@ import rest from './rest';
 
 export default {
   Query: {
-    post: (...args) => rest.getPost(...args),
-    posts: (...args) => rest.getPosts(...args),
-    user: (...args) => rest.getUser(...args),
-    users: (...args) => rest.getUsers(...args),
+    post: rest.getPost,
+    posts: rest.getPosts,
+    user: rest.getUser,
+    users: rest.getUsers,
   },
 
   Mutation: {
-    addPost: (...args) => rest.addPost(...args),
+    addPost: rest.addPost,
   },
 
   Post: {
-    author: (...args) => rest.getUser(...args),
+    author: rest.getUser,
   },
 
   User: {
-    posts: (...args) => rest.getPosts(...args),
+    posts: rest.getPosts,
   },
 };
