@@ -46,7 +46,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-loader": "^0.5.1",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.0.6",
     "nodemon": "^1.14.7",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
