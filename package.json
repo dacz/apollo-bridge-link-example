@@ -72,7 +72,7 @@
     "ramda": "^0.25.0",
     "react": "^16.8.4",
     "react-apollo": "^2.0.4",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.8.4",
     "react-router-dom": "^4.2.2",
     "recompose": "^0.26.0"
   }
