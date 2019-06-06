@@ -1,3 +1,5 @@
+# NOT MAINTAINED ANYMORE
+
 # Use GraphQL with Rest API - demo
 
 [![travis.ci](https://img.shields.io/travis/dacz/apollo-bridge-link-example.svg?style=flat-square)](https://travis-ci.org/dacz/apollo-bridge-link-example)
